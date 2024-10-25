@@ -1,0 +1,48 @@
+@host = http://localhost:3000
+
+### 
+GET {{host}}/
+
+### Get all employees
+GET {{host}}/employees
+
+### Get employee with id
+GET {{host}}/employees/1
+
+### Post new employee
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+    "name": "Matt"
+}
+
+### Update current employee
+PUT {{host}}/employees/9
+Content-Type: application/json
+
+{
+    "name":"newGuy"
+}
+
+### INCORRECTLY update current employee w/out proper name
+PUT {{host}}/employees/9
+Content-Type:application/json
+
+{
+    "name":2123
+}
+
+### INCORRECTLY update current employee w/out a pre-existing id
+PUT {{host}}/employees/100
+Content-Content-Type: application/json
+
+{
+    "name": "what"
+}
+
+### Delete employee
+DELETE {{host}}/employees/1
+
+### INCORRECTLY Delete employee
+DELETE {{host}}/employees/100
